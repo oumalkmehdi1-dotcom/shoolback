@@ -5,7 +5,7 @@ import cors from 'cors';
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Activer CORS pour permettre au front-end de consommer l'API
+// Activer CORS pour le front-end
 app.use(cors());
 app.use(express.json());
 
@@ -23,12 +23,12 @@ const cars = [
   { brand: "Volkswagen", models: ["Polo", "Golf", "Tiguan", "Passat"] }
 ];
 
-// Route GET pour récupérer toutes les marques avec modèles
+// GET /api/cars → toutes les marques
 app.get('/api/cars', (req, res) => {
   res.json(cars);
 });
 
-// Route GET pour récupérer un brand spécifique par nom
+// GET /api/cars/:brand → marque spécifique
 app.get('/api/cars/:brand', (req, res) => {
   const brandName = req.params.brand.toLowerCase();
   const car = cars.find(c => c.brand.toLowerCase() === brandName);
