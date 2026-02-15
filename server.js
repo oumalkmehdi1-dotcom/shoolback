@@ -3,6 +3,8 @@ import express from 'express';
 import cors from 'cors';
 
 const app = express();
+const port = process.env.PORT || 3000;
+
 // Activer CORS pour permettre au front-end de consommer l'API
 app.use(cors());
 app.use(express.json());
